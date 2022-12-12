@@ -1,5 +1,4 @@
 "use strict";
-// alert(`Привіт програма рахує складання чисел від N до M, числа мають бути цілі та N > M`)
 let numberN;
 let numberM;
 
