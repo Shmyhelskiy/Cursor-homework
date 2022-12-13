@@ -19,10 +19,9 @@ const avaragePrice = (amount / 3).toFixed(2);
 
 let discount = Math.random();
 
-let toPay = (amount  - (amount * discount).toFixed(2)).toFixed(2);
+let toPay = (amount  - (amount * discount)).toFixed(2);
 
 let netProfit = (amount / 2 - (amount * discount)).toFixed(2); 
-
 alert(
     `Максимальне число з усіх = ${maxNumber}
     Мінімальне число з усіх = ${minNumber}
