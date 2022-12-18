@@ -1,0 +1,9 @@
+.func-box {
+  text-align: center;
+}
+.function-button {
+  background-color: orange;
+  border: solid 0px;
+  border-radius: 50px;
+  padding: 15px;
+}
