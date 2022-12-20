@@ -156,10 +156,16 @@ const isPalyndrom = () => {
   const text = prompt(`Введіть текст`);
   if (typeof text !== "string" || text === "")
     return alert("Ви нічого не ввели");
-  let reverseText = text.split("").reverse().join("");
-  if (text === reverseText) {
-    return alert("Текст є поліндромом");
-  } else return alert("Текст не є поліндромом");
+  const originalText = text.toLowerCase().split("");
+  const reverseText = text.toLowerCase().split("").reverse();
+  // if (originalText == reverseText) {
+  //   return alert("Текст є поліндромом");
+  // } else return alert("Текст не є поліндромом");
+  for (let i = 0; i < originalText.length; i++) {
+    if (originalText[i] !== reverseText[length - [i]]) {
+      return alert("Текст не є поліндромом");
+    } else return alert("Текст є поліндромом");
+  }
 };
 
 //Функція Виводу
