@@ -41,6 +41,7 @@ function fixArr(arr) {
     arr[i].splice(0, 1);
   }
 }
+
 alert(`Результати в консолі`);
 console.log(`Створені пари: `, pairs);
 console.log(`Теми для пар: `, pairsThemes);
