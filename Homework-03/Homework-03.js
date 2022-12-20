@@ -58,10 +58,9 @@ const randomNumber = () => {
   const secondNumber = Number(prompt("Введіть число", 0));
   if (typeof secondNumber !== "number" || isNaN(secondNumber))
     return alert("Ви написали не число");
-  let result = (
-    Math.random() * (secondNumber - firstnumber) +
-    firstnumber
-  ).toFixed(2);
+  let result = Math.round(
+    Math.random() * (secondNumber - firstnumber) + firstnumber
+  );
   return alert(
     `Створено рандомне число = ${result}, у діапазоні з ${firstnumber} по ${secondNumber}`
   );
