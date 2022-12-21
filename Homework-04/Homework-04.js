@@ -6,21 +6,32 @@ const themes = [
   "Алгоритми і структури даних",
 ];
 const marks = [4, 5, 5, 3, 4, 5];
-const pairs = [
-  ["Олександр", "Олена"],
-  ["Ігор", "Іра"],
-  ["Олексій", "Світлана"],
-];
-
-const pairsThemes = JSON.parse(JSON.stringify(pairs));
-for (let i = 0; i < pairsThemes.length; i++) {
-  pairsThemes[i].push(themes[i]);
+const pairs = getPairs();
+function getPairs() {
+  return [
+    ["Олександр", "Олена"],
+    ["Ігор", "Іра"],
+    ["Олексій", "Світлана"],
+  ];
 }
 
-const studentsMarks = [...students];
-for (let i = 0; i < studentsMarks.length; i++) {
-  studentsMarks[i] = [studentsMarks[i]];
-  studentsMarks[i].push(marks[i]);
+const pairsThemes = getPairsThemes();
+function getPairsThemes() {
+  const copyPairs = JSON.parse(JSON.stringify(pairs));
+  for (let i = 0; i < copyPairs.length; i++) {
+    copyPairs[i].push(themes[i]);
+  }
+  return copyPairs;
+}
+
+const studentsMarks = getStudentsMarks();
+function getStudentsMarks() {
+  const copyStudents = [...students];
+  for (let i = 0; i < copyStudents.length; i++) {
+    copyStudents[i] = [copyStudents[i]];
+    copyStudents[i].push(marks[i]);
+  }
+  return copyStudents;
 }
 
 let resultOfWork = addMarks(pairsThemes, marks);
