@@ -1,10 +1,10 @@
 "use strict";
 // Функція №1 вивід найбільшої цифри з числа
 const getMaxDigit = () => {
-  const number = Number(prompt("Введіть число", 0));
-  if (typeof number !== "number" || isNaN(number))
-    return alert("Ви написали не число");
-  const arr = number.toString().split("");
+  const number = prompt("Введіть число", 0);
+  const arr = number.split("").filter((item) => {
+    return parseInt(item) == item;
+  });
   const result = Math.max(...arr);
   return alert(`Найбільша цифра у числі  = ${result}`);
 };
@@ -19,10 +19,17 @@ const powNumber = () => {
     return alert("Ви написали не число");
   if (pow === 0) return alert(`Результат = 1`);
   let result = number;
-  for (let i = 1; i < pow; i++) {
-    result *= number;
+  if (pow > 0) {
+    for (let i = 1; i < pow; i++) {
+      result *= number;
+    }
+    return alert(`Результат = ${result}`);
+  } else if (pow < 0) {
+    for (let i = -1; i > pow; i--) {
+      result *= number;
+    }
+    return alert(`Результат = ${1 / result}`);
   }
-  return alert(`Результат = ${result}`);
 };
 
 // Функція №3 Повернення слова з заглавною літерію
@@ -110,7 +117,7 @@ const convertCurrency = () => {
 
 // Функція №8 Генерація паролю
 const randomPass = () => {
-  const number = Number(prompt("Введіть довжину паролю", 0));
+  const number = Number(prompt("Введіть довжину паролю", 8));
   if (typeof number !== "number" || isNaN(number))
     return alert("Ви написали не число");
   let arr = [];
@@ -125,7 +132,6 @@ const randomPass = () => {
   }
   for (let i = 0; i < arr.length; i++) {
     if (arr[i] === 10) {
-      3;
       arr[i] = 1;
     }
   }
@@ -140,7 +146,7 @@ const deleteLetters = () => {
   const letter = prompt(`Введіть букву яку будемо видаляти`);
   if (typeof letter !== "string" || letter === "")
     return alert("Ви нічого не ввели");
-  let arr = text.split("");
+  let arr = text.toLowerCase().split("");
   let result = [];
   for (let i = 0; i < arr.length; i++) {
     if (arr[i] !== letter) {
@@ -149,7 +155,7 @@ const deleteLetters = () => {
   }
   return alert(`Текст після видалення ${result.join("")}`);
 };
-
+console.log(deleteLetters());
 // Функція №10 перевірки на поліндром
 const isPalyndrom = () => {
   const text = prompt(`Введіть текст`);
@@ -157,9 +163,6 @@ const isPalyndrom = () => {
     return alert("Ви нічого не ввели");
   const originalText = text.toLowerCase().split("");
   const reverseText = text.toLowerCase().split("").reverse();
-  // if (originalText == reverseText) {
-  //   return alert("Текст є поліндромом");
-  // } else return alert("Текст не є поліндромом");
   for (let i = 0; i < originalText.length; i++) {
     if (originalText[i] !== reverseText[length - [i]]) {
       return alert("Текст не є поліндромом");
