@@ -28,6 +28,7 @@ const students = [
     },
   },
 ];
+
 // Функція повернення дисциплін
 const getSubjects = (students) => {
   const arrSubjects = [];
@@ -86,8 +87,8 @@ const getBestStudent = (students) => {
   const theBestStudent = avarageMarks[0][0];
   return theBestStudent;
 };
-// Функція калькулятор бук в слові
 
+// Функція калькулятор бук в слові
 const calculateWordLetters = (string) => {
   let conteiner = {};
   for (let i = 0; i < string.length; i++) {
@@ -99,6 +100,7 @@ const calculateWordLetters = (string) => {
   }
   return conteiner;
 };
+
 console.log("Предмети стеднта №0", getSubjects(students[0]));
 console.log(`Середня оцінка стеднта №0`, getAverageMark(students[0]));
 console.log(`Імена студентів`, getStudentsNames(students));
