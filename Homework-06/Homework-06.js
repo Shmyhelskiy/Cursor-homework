@@ -28,6 +28,7 @@ const students = [
     },
   },
 ];
+
 // Функція повернення дисциплін
 const getSubjects = (students) => {
   const arrSubjects = [];
@@ -55,7 +56,7 @@ const getAverageMark = (students) => {
   ).toFixed(2);
   return AvarageMark;
 };
-// console.log(getAverageMark());
+
 // Функція виведення інформації про студента
 const getStudentInfo = (students) => {
   students.AverageMark = getAverageMark(students);
@@ -99,6 +100,7 @@ const calculateWordLetters = (string) => {
   }
   return conteiner;
 };
+
 console.log("Предмети стеднта №0", getSubjects(students[0]));
 console.log(`Середня оцінка стеднта №0`, getAverageMark(students[0]));
 console.log(`Імена студентів`, getStudentsNames(students));
