@@ -55,7 +55,7 @@ const getAverageMark = (students) => {
   ).toFixed(2);
   return AvarageMark;
 };
-// console.log(getAverageMark());
+
 // Функція виведення інформації про студента
 const getStudentInfo = (students) => {
   students.AverageMark = getAverageMark(students);
