@@ -6,23 +6,45 @@ const themes = [
   "Алгоритми і структури даних",
 ];
 const marks = [4, 5, 5, 3, 4, 5];
-const pairs = [
-  ["Олександр", "Олена"],
-  ["Ігор", "Іра"],
-  ["Олексій", "Світлана"],
-];
-
-const pairsThemes = JSON.parse(JSON.stringify(pairs));
-for (let i = 0; i < pairsThemes.length; i++) {
-  pairsThemes[i].push(themes[i]);
-}
-
+// Функція створення пар
+const getPairs = () => {
+  const boys = [];
+  const girls = [];
+  for (let i = 0; i < students.length; i++) {
+    const element = students[i];
+    if (element.slice(-1) === "а") {
+      girls.push(element);
+    } else {
+      boys.push(element);
+    }
+  }
+  const pairs = [];
+  for (let i = 0; i < boys.length; i++) {
+    pairs.push([boys[i], girls[i]]);
+  }
+  return pairs;
+};
+const pairs = getPairs();
+// Функція створення тем для пар
+const getpairsThemes = () => {
+  let result = JSON.parse(JSON.stringify(pairs));
+  for (let i = 0; i < result.length; i++) {
+    result[i][0] = result[i].join(` i `);
+    result[i].splice(1, 1);
+  }
+  for (let i = 0; i < result.length; i++) {
+    result[i].push(themes[i]);
+  }
+  return result;
+};
+const pairsThemes = getpairsThemes();
+// Створення оцінок студентів
 const studentsMarks = [...students];
 for (let i = 0; i < studentsMarks.length; i++) {
   studentsMarks[i] = [studentsMarks[i]];
   studentsMarks[i].push(marks[i]);
 }
-
+// Функція створення оцінок груп
 let resultOfWork = addMarks(pairsThemes, marks);
 function addMarks(pairsThemes, marks) {
   const result = [];
@@ -30,16 +52,7 @@ function addMarks(pairsThemes, marks) {
     let randomNumber = Math.round(Math.random() * (5 - 1) + 1);
     result.push([...pairsThemes[i], randomNumber]);
   }
-  fixArr(result);
   return result;
-}
-function fixArr(arr) {
-  for (let i = 0; i < arr.length; i++) {
-    arr[i][1] = arr[i][0] + ` i ` + arr[i][1];
-  }
-  for (let i = 0; i < arr.length; i++) {
-    arr[i].splice(0, 1);
-  }
 }
 
 alert(`Результати в консолі`);
