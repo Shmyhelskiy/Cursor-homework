@@ -27,7 +27,6 @@ const getPairs = () => {
 };
 const pairs = getPairs();
 
-// Функція створення тем для пар
 const getpairsThemes = () => {
   let result = JSON.parse(JSON.stringify(pairs));
   for (let i = 0; i < result.length; i++) {
@@ -41,14 +40,12 @@ const getpairsThemes = () => {
 };
 const pairsThemes = getpairsThemes();
 
-// Створення оцінок студентів
 const studentsMarks = [...students];
 for (let i = 0; i < studentsMarks.length; i++) {
   studentsMarks[i] = [studentsMarks[i]];
   studentsMarks[i].push(marks[i]);
 }
 
-// Функція створення оцінок груп
 let resultOfWork = addMarks(pairsThemes, marks);
 function addMarks(pairsThemes, marks) {
   const result = [];
