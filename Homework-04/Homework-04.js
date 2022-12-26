@@ -47,6 +47,7 @@ for (let i = 0; i < studentsMarks.length; i++) {
   studentsMarks[i] = [studentsMarks[i]];
   studentsMarks[i].push(marks[i]);
 }
+
 // Функція створення оцінок груп
 let resultOfWork = addMarks(pairsThemes, marks);
 function addMarks(pairsThemes, marks) {
