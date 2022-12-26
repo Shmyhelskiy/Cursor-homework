@@ -155,7 +155,7 @@ const deleteLetters = () => {
   }
   return alert(`Текст після видалення ${result.join("")}`);
 };
-console.log(deleteLetters());
+
 // Функція №10 перевірки на поліндром
 const isPalyndrom = () => {
   const text = prompt(`Введіть текст`);

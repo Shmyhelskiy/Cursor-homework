@@ -87,4 +87,20 @@ const getBestStudent = (students) => {
   return theBestStudent;
 };
 
-// Функція
+// Функція калькулятор бук в слові
+
+const calculateWordLetters = (string) => {
+  const conteiner = {};
+  const arr = string.split("");
+  for (let i = 0; i < arr.length; i++) {
+    for (let j = i + 1; j < arr.length; j++) {
+      let counter = 0;
+      if (arr[i] === arr[j]) {
+        counter++;
+      }
+    }
+    conteiner.arr[i](counter);
+  }
+  return arr;
+};
+console.log(calculateWordLetters(`text`));
