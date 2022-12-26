@@ -6,6 +6,7 @@ const themes = [
   "Алгоритми і структури даних",
 ];
 const marks = [4, 5, 5, 3, 4, 5];
+
 // Функція створення пар
 const getPairs = () => {
   const boys = [];
@@ -25,6 +26,7 @@ const getPairs = () => {
   return pairs;
 };
 const pairs = getPairs();
+
 // Функція створення тем для пар
 const getpairsThemes = () => {
   let result = JSON.parse(JSON.stringify(pairs));
@@ -38,6 +40,7 @@ const getpairsThemes = () => {
   return result;
 };
 const pairsThemes = getpairsThemes();
+
 // Створення оцінок студентів
 const studentsMarks = [...students];
 for (let i = 0; i < studentsMarks.length; i++) {
