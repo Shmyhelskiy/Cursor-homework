@@ -90,13 +90,10 @@ const getBestStudent = (students) => {
 // Функція калькулятор бук в слові
 
 const calculateWordLetters = (string) => {
-  let conteiner = {};
-  for (let i = 0; i < string.length; i++) {
-    if (conteiner[string[i]]) {
-      conteiner[string[i]] += 1;
-    } else {
-      conteiner[string[i]] = 1;
-    }
+  const arr = string.split("");
+  const conteiner = {};
+  for (let char of arr) {
+    conteiner[char] = conteiner[char] ? conteiner[char] + 1 : 1;
   }
   return conteiner;
 };
