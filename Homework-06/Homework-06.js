@@ -41,7 +41,7 @@ const getSubjects = (students) => {
       return item.replace(`_`, ` `);
     } else return (item = item[0].toUpperCase() + item.slice(1));
   });
-  return arrSubjects;
+  return result;
 };
 
 // Функція поверненя середньої оцінки
@@ -92,6 +92,7 @@ const getBestStudent = (students) => {
 const calculateWordLetters = (string) => {
   const arr = string.split("");
   const conteiner = {};
+
   for (let char of arr) {
     conteiner[char] = conteiner[char] ? conteiner[char] + 1 : 1;
   }
