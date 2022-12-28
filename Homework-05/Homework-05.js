@@ -26,10 +26,12 @@ function getMedian(...numbers) {
     })
     .sort((a, b) => a - b);
   if (integerArr.length % 2 == 0) {
-    return (findMidlIndex =
-      (integerArr[integerArr.length / 2] +
-        integerArr[integerArr.length / 2 - 1]) /
-      2);
+    return (
+      findMidlIndex(
+        integerArr[integerArr.length / 2] +
+          integerArr[integerArr.length / 2 - 1]
+      ) / 2
+    );
   } else return integerArr[Math.round(integerArr.length / 2) - 1];
 }
 
