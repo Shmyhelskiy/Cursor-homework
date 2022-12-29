@@ -27,10 +27,9 @@ function getMedian(...numbers) {
     .sort((a, b) => a - b);
   if (integerArr.length % 2 == 0) {
     return (
-      findMidlIndex(
-        integerArr[integerArr.length / 2] +
-          integerArr[integerArr.length / 2 - 1]
-      ) / 2
+      (integerArr[integerArr.length / 2 - 1] +
+        integerArr[integerArr.length / 2]) /
+      2
     );
   } else return integerArr[Math.round(integerArr.length / 2) - 1];
 }
@@ -88,10 +87,7 @@ console.log(
   getRandomArray(10, 1, 10)
 );
 console.log(`Приклад виклику getAverage(100,200): `, getAverage(100, 200));
-console.log(
-  `Приклад виклику getMedian(1, 2, 3, 4, 5): `,
-  getMedian(1, 2, 3, 4, 5)
-);
+console.log(`Приклад виклику getMedian(1, 2, 3, 4): `, getMedian(1, 2, 3, 4));
 console.log(
   `Приклад виклику filterEvenNumbers(1, 2, 3, 4, 5): `,
   filterEvenNumbers(1, 2, 3, 4, 5)
