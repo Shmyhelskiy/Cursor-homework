@@ -19,11 +19,7 @@ function getAverage(...numbers) {
 
 function getMedian(...numbers) {
   let integerArr = numbers
-    .filter((item) => {
-      if (Number.isInteger(item)) {
-        return true;
-      } else return false;
-    })
+    .filter((item) => Number.isInteger(item))
     .sort((a, b) => a - b);
   if (integerArr.length % 2 == 0) {
     return (
@@ -46,20 +42,20 @@ function countPositiveNumbers(...numbers) {
   }, 0);
   return positivNubers;
 }
-console.log(countPositiveNumbers(1, 2, 3, -5, -5, true));
+
 function getDividedByFive(...numbers) {
   return numbers.filter((item) => item % 5 == 0);
 }
 
-function replaceBadWords(string) {
-  const badWords = /shit|fuck/gi;
+function replaceBadWords(string, badWords = [`shit`, `fuck`]) {
+  const regExp = new RegExp(badWords.join(`|`), `gi`);
   const arr = string.split(" ");
   let newArr = arr.map((item) => {
-    if (badWords.test(item)) {
-      return item.replace(badWords, `****`);
+    if (regExp.test(item)) {
+      return item.replace(regExp, `****`);
     } else return item;
   });
-  return newArr.join(" ");
+  return newArr;
 }
 
 function findMode(array) {
@@ -81,30 +77,27 @@ function findMode(array) {
   return result;
 }
 
-// alert(`Приклади в консолі`);
-// console.log(
-//   `Приклад виклику getRandomArray(length(10), min(1), max(10)): `,
-//   getRandomArray(10, 1, 10)
-// );
-// console.log(`Приклад виклику getAverage(100,200): `, getAverage(100, 200));
-// console.log(`Приклад виклику getMedian(1, 2, 3, 4): `, getMedian(1, 2, 3, 4));
-// console.log(
-//   `Приклад виклику filterEvenNumbers(1, 2, 3, 4, 5): `,
-//   filterEvenNumbers(1, 2, 3, 4, 5)
-// );
-// console.log(
-//   `Приклад виклику countPositiveNumbers(1, 2, 3, -1, -2):`,
-//   countPositiveNumbers(1, 2, 3, -1, -2)
-// );
-// console.log(
-//   `Приклад виклику getDividedByFive(1, 5, 55, 32):`,
-//   getDividedByFive(1, 5, 55, 32)
-// );
-// console.log(
-//   `Приклад виклику replaceBadWords("Holy shit!, fuck"): `,
-//   replaceBadWords("Holy shit!, fuck")
-// );
-// console.log(
-//   `Приклад виклику findMode([1, 2, 1, 5]):`,
-//   findMode([1, 2, 1, 5])
-// );
+alert(`Приклади в консолі`);
+console.log(
+  `Приклад виклику getRandomArray(length(10), min(1), max(10)): `,
+  getRandomArray(10, 1, 10)
+);
+console.log(`Приклад виклику getAverage(100,200): `, getAverage(100, 200));
+console.log(`Приклад виклику getMedian(1, 2, 3, 4): `, getMedian(1, 2, 3, 4));
+console.log(
+  `Приклад виклику filterEvenNumbers(1, 2, 3, 4, 5): `,
+  filterEvenNumbers(1, 2, 3, 4, 5)
+);
+console.log(
+  `Приклад виклику countPositiveNumbers(1, 2, 3, -1, -2):`,
+  countPositiveNumbers(1, 2, 3, -1, -2)
+);
+console.log(
+  `Приклад виклику getDividedByFive(1, 5, 55, 32):`,
+  getDividedByFive(1, 5, 55, 32)
+);
+console.log(
+  `Приклад виклику replaceBadWords("Holy shit!, fuck"): `,
+  replaceBadWords("Holy shit!, fuck", [`shit`, `Fuck`])
+);
+console.log(`Приклад виклику findMode([1, 2, 1, 5]):`, findMode([1, 2, 1, 5]));
