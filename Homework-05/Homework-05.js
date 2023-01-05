@@ -19,11 +19,7 @@ function getAverage(...numbers) {
 
 function getMedian(...numbers) {
   let integerArr = numbers
-    .filter((item) => {
-      if (Number.isInteger(item)) {
-        return true;
-      } else return false;
-    })
+    .filter((item) => Number.isInteger(item))
     .sort((a, b) => a - b);
   if (integerArr.length % 2 == 0) {
     return (
@@ -39,25 +35,27 @@ function filterEvenNumbers(...numbers) {
 }
 
 function countPositiveNumbers(...numbers) {
-  let positivNubers = numbers.reduce((acc, item) => {
+  const isNumber = numbers.filter((item) => typeof item === `number`);
+  let positivNubers = isNumber.reduce((acc, item) => {
     if (item > 0) return acc + 1;
     return acc;
   }, 0);
   return positivNubers;
 }
+
 function getDividedByFive(...numbers) {
   return numbers.filter((item) => item % 5 == 0);
 }
 
-function replaceBadWords(string) {
-  const badWords = /shit|fuck/gi;
+function replaceBadWords(string, badWords = [`shit`, `fuck`]) {
+  const regExp = new RegExp(badWords.join(`|`), `gi`);
   const arr = string.split(" ");
   let newArr = arr.map((item) => {
-    if (badWords.test(item)) {
-      return item.replace(badWords, `****`);
+    if (regExp.test(item)) {
+      return item.replace(regExp, `****`);
     } else return item;
   });
-  return newArr.join(" ");
+  return newArr;
 }
 
 function findMode(array) {
@@ -69,16 +67,14 @@ function findMode(array) {
       object[array[i]] = 1;
     }
   }
-  let biggestValue = 0;
-  let biggestValuesKey = 0;
-  Object.keys(object).forEach((key) => {
-    let value = object[key];
-    if (value >= biggestValue) {
-      biggestValue = value;
-      biggestValuesKey = key;
+  const bigestValue = Math.max(...Object.values(object));
+  const result = [];
+  for (let key in object) {
+    if (object[key] === bigestValue) {
+      result.push(key);
     }
-  });
-  return biggestValuesKey;
+  }
+  return result;
 }
 
 alert(`Приклади в консолі`);
@@ -102,9 +98,6 @@ console.log(
 );
 console.log(
   `Приклад виклику replaceBadWords("Holy shit!, fuck"): `,
-  replaceBadWords("Holy shit!, fuck")
+  replaceBadWords("Holy shit!, fuck", [`shit`, `Fuck`])
 );
-console.log(
-  `Приклад виклику findMode([1, 2, 1, 5]) (Моду шукає тільки одну):`,
-  findMode([1, 2, 1, 5])
-);
+console.log(`Приклад виклику findMode([1, 2, 1, 5]):`, findMode([1, 2, 1, 5]));
