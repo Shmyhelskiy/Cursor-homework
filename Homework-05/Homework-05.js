@@ -8,19 +8,13 @@ function getRandomArray(length, min, max) {
 }
 
 function getAverage(...numbers) {
-  let integerArr = numbers.filter((item) => {
-    if (Number.isInteger(item)) {
-      return true;
-    } else return false;
-  });
-  let result = integerArr.reduce((acc, item) => acc + item, 0);
+  const integerArr = checkIntegerNumber(numbers);
+  const result = integerArr.reduce((acc, item) => acc + item, 0);
   return result / integerArr.length;
 }
 
 function getMedian(...numbers) {
-  let integerArr = numbers
-    .filter((item) => Number.isInteger(item))
-    .sort((a, b) => a - b);
+  let integerArr = checkIntegerNumber(numbers).sort((a, b) => a - b);
   if (integerArr.length % 2 == 0) {
     return (
       (integerArr[integerArr.length / 2 - 1] +
@@ -59,12 +53,13 @@ function replaceBadWords(string, badWords = [`shit`, `fuck`]) {
 }
 
 function findMode(array) {
+  const integerArr = checkIntegerNumber(array);
   let object = {};
-  for (let i = 0; i < array.length; i++) {
-    if (object[array[i]]) {
-      object[array[i]] += 1;
+  for (let i = 0; i < integerArr.length; i++) {
+    if (object[integerArr[i]]) {
+      object[integerArr[i]] += 1;
     } else {
-      object[array[i]] = 1;
+      object[integerArr[i]] = 1;
     }
   }
   const bigestValue = Math.max(...Object.values(object));
@@ -77,20 +72,30 @@ function findMode(array) {
   return result;
 }
 
+function checkIntegerNumber(numbers) {
+  return numbers.filter((item) => Number.isInteger(item));
+}
+
 alert(`Приклади в консолі`);
 console.log(
   `Приклад виклику getRandomArray(length(10), min(1), max(10)): `,
   getRandomArray(10, 1, 10)
 );
-console.log(`Приклад виклику getAverage(100,200): `, getAverage(100, 200));
-console.log(`Приклад виклику getMedian(1, 2, 3, 4): `, getMedian(1, 2, 3, 4));
+console.log(
+  `Приклад виклику getAverage(100,200, 25.5): `,
+  getAverage(100, 200, 25.5)
+);
+console.log(
+  `Приклад виклику getMedian(1, 2, 3, 4, 5.66, 23.1): `,
+  getMedian(1, 2, 3, 4, 5.66, 23.1)
+);
 console.log(
   `Приклад виклику filterEvenNumbers(1, 2, 3, 4, 5): `,
   filterEvenNumbers(1, 2, 3, 4, 5)
 );
 console.log(
-  `Приклад виклику countPositiveNumbers(1, 2, 3, -1, -2):`,
-  countPositiveNumbers(1, 2, 3, -1, -2)
+  `Приклад виклику countPositiveNumbers(1, 2, 3, -1, -2, true):`,
+  countPositiveNumbers(1, 2, 3, -1, -2, true)
 );
 console.log(
   `Приклад виклику getDividedByFive(1, 5, 55, 32):`,
@@ -100,4 +105,7 @@ console.log(
   `Приклад виклику replaceBadWords("Holy shit!, fuck"): `,
   replaceBadWords("Holy shit!, fuck", [`shit`, `Fuck`])
 );
-console.log(`Приклад виклику findMode([1, 2, 1, 5]):`, findMode([1, 2, 1, 5]));
+console.log(
+  `Приклад виклику findMode([1, 2, 1, 5, 2.5,2.5]):`,
+  findMode([1, 2, 1, 5, 2.5, 2.5])
+);
