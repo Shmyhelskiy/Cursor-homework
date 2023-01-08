@@ -90,7 +90,7 @@ const getBestStudent = (students) => {
 // Функція калькулятор бук в слові
 
 const calculateWordLetters = (string) => {
-  const arr = string.split("");
+  const arr = string.toLowerCase().split("");
   const conteiner = {};
 
   for (let char of arr) {
