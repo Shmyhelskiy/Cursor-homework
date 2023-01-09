@@ -36,10 +36,8 @@ const getSubjects = (students) => {
     arrSubjects.push(key);
   }
   const result = arrSubjects.map((item) => {
-    if (item.includes(`_`)) {
-      item = item[0].toUpperCase() + item.slice(1);
-      return item.replace(`_`, ` `);
-    } else return (item = item[0].toUpperCase() + item.slice(1));
+    item = item[0].toUpperCase() + item.slice(1);
+    return item.replace(`_`, ` `);
   });
   return result;
 };
@@ -51,15 +49,15 @@ const getAverageMark = (students) => {
     arrSubjectsMarks.push(students.subjects[key]);
   }
   const marks = arrSubjectsMarks.flat();
-  const AvarageMark = (
+  const avarageMark = (
     marks.reduce((acc, item) => acc + item, 0) / marks.length
   ).toFixed(2);
-  return AvarageMark;
+  return avarageMark;
 };
 
 // Функція виведення інформації про студента
 const getStudentInfo = (students) => {
-  students.AverageMark = getAverageMark(students);
+  students.averageMark = getAverageMark(students);
   delete students.subjects;
   return students;
 };
@@ -77,7 +75,7 @@ const getStudentsNames = (students) => {
 // Функція перевірки найкращого студента
 const getBestStudent = (students) => {
   for (let key in students) {
-    students[key].AverageMark = getAverageMark(students[key]);
+    students[key].averageMark = getAverageMark(students[key]);
   }
   const avarageMarks = [];
   for (let key in students) {
