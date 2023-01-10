@@ -57,7 +57,7 @@ class Student {
 class BudgetStudent extends Student {
   constructor(university, course, fullName) {
     super(university, course, fullName);
-    this.scholarship = setInterval(() => this.getScholarship(), 5000);
+    this.scholarship = setInterval(() => this.getScholarship(), 30000);
   }
 
   getScholarship() {
@@ -67,8 +67,10 @@ class BudgetStudent extends Student {
       if (this.getAverageMarks() >= 4) {
         this.scholarship = 1400;
         console.log(`Ви отримали 1400 грн. стипендії`);
-      } else if (this.getAverageMarks() < 4) {
+      } else if (this.getAverageMarks() < 4 && this.getAverageMarks() !== 0) {
         this.scholarship = `Студент має погану успішність`;
+      } else if (this.getAverageMarks() == 0) {
+        this.scholarship = `Студент ще не отримав  жодної оцінки`;
       }
     }
   }
