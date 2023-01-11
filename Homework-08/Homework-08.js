@@ -76,12 +76,12 @@ class BudgetStudent extends Student {
   }
 }
 
-const user1 = new Student(
+const student1 = new Student(
   `Вища Школа Психології`,
   1,
   "Остап Родоманський Бендер"
 );
-const user2 = new BudgetStudent(
+const student2 = new BudgetStudent(
   `Вища Школа Психології`,
   2,
   "Сергій Олександрвоич Сніжко"
