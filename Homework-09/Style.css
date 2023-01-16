@@ -1,0 +1,30 @@
+.btn {
+  background-color: red;
+  border-radius: 50px;
+  height: 100px;
+  width: 100px;
+  margin: 10px auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.btn:active {
+  background-color: rgb(27, 221, 27);
+  margin: 0, auto;
+}
+
+.title {
+  text-align: center;
+}
+.container {
+  width: 250px;
+  height: 250px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+}
+.box {
+  height: 50px;
+  width: 50px;
+  display: block;
+}
