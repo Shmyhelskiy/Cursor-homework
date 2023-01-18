@@ -4,6 +4,7 @@ document.addEventListener("keydown", function (e) {
   const key = document.querySelector(`.key[data-key="${e.keyCode}"]`);
   if (!audio) return;
   if (audio) {
+    audio.currentTime = 0;
     audio.play();
     changeStyle(key);
   }
