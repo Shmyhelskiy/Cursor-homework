@@ -1,5 +1,8 @@
-// Прослуховування при нажатті клавіш
-document.addEventListener("keydown", function (e) {
+document.addEventListener("keydown", playSounds);
+document.addEventListener(`keyup`, backStyle);
+
+// Функція програшу звуку при нажатті клавіші
+function playSounds(e) {
   const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`);
   const key = document.querySelector(`.key[data-key="${e.keyCode}"]`);
   if (!audio) return;
@@ -8,12 +11,8 @@ document.addEventListener("keydown", function (e) {
     audio.play();
     changeStyle(key);
   }
-});
-// Прослуховування при відтисканні клавіш
-document.addEventListener(`keyup`, function (e) {
-  const key = document.querySelector(`.key[data-key="${e.keyCode}"]`);
-  backStyle(key);
-});
+}
+
 // Функція зміни стилю при нажатті на кнопку
 function changeStyle(key) {
   if (!key.classList.contains("playing")) {
@@ -21,12 +20,13 @@ function changeStyle(key) {
     key.style.backgroundColor = createRandomColor();
   }
 }
-// Функцыя повернення стилю
-function backStyle(key) {
+// Функція повернення стилю
+function backStyle(e) {
+  const key = document.querySelector(`.key[data-key="${e.keyCode}"]`);
   if (key.classList.contains("playing")) {
     key.classList.remove(`playing`);
     key.style.backgroundColor = `rgba(0, 0, 0, 0.4)`;
-  } else return;
+  }
 }
 //  Функція створення випадкового кольору
 function createRandomColor() {
