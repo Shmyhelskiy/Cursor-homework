@@ -22,9 +22,7 @@ function getLastNumber() {
 }
 // Функція створення затримки
 function delay(ms) {
-  return new Promise((resoleve, reject) => {
-    setTimeout(() => resoleve(), ms);
-  });
+  return new Promise((resoleve) => setTimeout(() => resoleve(), ms));
 }
 // Функція створення ієрогліфа
 function createHieroglyph() {
