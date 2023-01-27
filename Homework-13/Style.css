@@ -1,0 +1,19 @@
+body {
+  text-align: center;
+}
+.container {
+  display: flex;
+  justify-content: center;
+}
+.test {
+  font-size: 16px;
+  text-align: center;
+}
+.btn {
+  margin: 20px;
+  height: 40px;
+  border-radius: 10%;
+}
+.btn:active {
+  background-color: rgb(12, 158, 184);
+}
